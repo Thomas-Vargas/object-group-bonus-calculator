@@ -42,6 +42,58 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+// This function will calculate 1 employee's bonus!
+//
+
+function calculateIndividualEmployeeBonus( employee ) {  
+  // Test to see each employeeconsole.log(employee)gi
+
+  let newObj = {
+    name: employee.name,
+  };
+  
+  // your logic here
+  //find bonus percentage
+  if (employee.reviewRating <= 2) {
+    newObj.bonusPercentage = 0;
+  }
+
+  if (employee.reviewRating === 3) {
+    newObj.bonusPercentage = .04;
+  }
+
+  if (employee.reviewRating === 4 ) {
+    newObj.bonusPercentage = .06;
+  }
+
+  if (employee.reviewRating === 5) {
+    newObj.bonusPercentage = .1;
+  }
+
+  //If employee has 4 digit employee number, add 5%
+  if (employee.employeeNumber.length === 4) { 
+    newObj.bonusPercentage += .05;
+  }
+  
+  if (employee.annualSalary > 65000 && employee.bonusPercentage > 0) {
+    newObj.bonusPercentage -= .01;
+  }
+
+  if (newObj.bonusPercentage > .13) {
+    newObj.bonusPercentage = .13;
+  }
+
+  //Calculate total bonus and add it to the newObj
+  newObj.totalBonus = Math.round(employee.annualSalary * newObj.bonusPercentage);
+
+  //Calculate total compensation and add it to the newObj
+  newObj.totalCompensation = Number(newObj.totalBonus) + Number(employee.annualSalary);
+
+  //Test - to see the newObj console.log(newObj);
+  //Return new object with bonus results
+  return newObj;
+}
+
 function loopOverEmployees(employees) {
   let employeeBonusArray =[];
 
@@ -67,57 +119,5 @@ function loopOverEmployees(employees) {
 
 //Test
 //loopOverEmployees(employees)
-
-
-// This function will calculate 1 employee's bonus!
-//
-function calculateIndividualEmployeeBonus( employee ) {  
-  // Test to see each employeeconsole.log(employee)gi
-
-  let newObj = {
-    name: employee.name,
-  };
-  
-  // your logic here
-  //find bonus percentage
-  if (employee.reviewRating <= 2) {
-    newObj.bonusPercentage = 0;
-  }
-
-  if (employee.reviewRating === 3) {
-    newObj.bonusPercentage = .04;
-  }
-
-  if (employee.reviewRating === 4 ) {
-    newObj.bonusPercentage = .06;
-  }
-  
-  if (employee.reviewRating === 5) {
-    newObj.bonusPercentage = .1;
-  }
-
-  //If employee has 4 digit employee number, add 5%
-  if (employee.employeeNumber.length === 4) { 
-    newObj.bonusPercentage += .05;
-  }
-  
-  if (employee.annualSalary > 65000 && employee.bonusPercentage > 0) {
-    newObj.bonusPercentage -= .01;
-  }
-
-  if (newObj.bonusPercentage > .13) {
-    newObj.bonusPercentage = .13;
-  }
-
-  //Calculate total bonus and add it to the newObj
-  newObj.totalBonus = Math.round(employee.annualSalary * newObj.bonusPercentage);
-
-  //Calculate total compensation and add it to the newObj
-  newObj.totalCompensation = Number(newObj.totalBonus) + Number(employee.annualSalary);
-
-  //Test - to see the newObj console.log(newObj);
-  // return new object with bonus results
-  return newObj;
-}
 
 // Test console.log(loopOverEmployees(employees))
