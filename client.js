@@ -42,9 +42,6 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-//Storing employee bonus objects to be accessed later
-
-
 function loopOverEmployees(employees) {
   let employeeBonusArray =[];
 
@@ -59,7 +56,9 @@ function loopOverEmployees(employees) {
   //Creating new div element with all the information in each object, adding it to the html page
   for (let i = 0; i < employeeBonusArray.length; i++) {
     let newElement = document.createElement('div');
-    newElement.appendChild(document.createTextNode(`${employeeBonusArray[i].name} recieved a total compensation of $${employeeBonusArray[i].totalCompensation} after recieving a bonus of $${employeeBonusArray[i].totalBonus} calculated using their bonus percent of ${employeeBonusArray[i].bonusPercentage * 100}%`));
+    newElement.appendChild(document.createTextNode(
+      `${employeeBonusArray[i].name} recieved a total compensation of $${employeeBonusArray[i].totalCompensation} after recieving a bonus of $${employeeBonusArray[i].totalBonus} calculated using their bonus percent of ${employeeBonusArray[i].bonusPercentage * 100}%`
+    ));
     document.getElementById('employee-data').appendChild(newElement);
   }
 
@@ -73,7 +72,6 @@ function loopOverEmployees(employees) {
 // This function will calculate 1 employee's bonus!
 //
 function calculateIndividualEmployeeBonus( employee ) {  
-
   // Test to see each employeeconsole.log(employee)
 
   let newObj = {
@@ -119,4 +117,4 @@ function calculateIndividualEmployeeBonus( employee ) {
   return newObj;
 }
 
-//console.log(loopOverEmployees(employees))
+// Test console.log(loopOverEmployees(employees))
