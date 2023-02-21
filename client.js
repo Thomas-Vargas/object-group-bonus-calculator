@@ -72,7 +72,7 @@ function loopOverEmployees(employees) {
 // This function will calculate 1 employee's bonus!
 //
 function calculateIndividualEmployeeBonus( employee ) {  
-  // Test to see each employeeconsole.log(employee)
+  // Test to see each employeeconsole.log(employee)gi
 
   let newObj = {
     name: employee.name,
