@@ -62,7 +62,7 @@ function loopOverEmployees(employees) {
     document.getElementById('employee-data').appendChild(newElement);
   }
 
-  return employeeBonusArray;
+  return employeeBonusArray; 
 }
 
 //Test
@@ -83,13 +83,13 @@ function calculateIndividualEmployeeBonus( employee ) {
   if (employee.reviewRating <= 2) {
     newObj.bonusPercentage = 0;
   }
-  else if (employee.reviewRating === 3) {
+  if (employee.reviewRating === 3) {
     newObj.bonusPercentage = .04;
   }
-  else if (employee.reviewRating === 4 ) {
+  if (employee.reviewRating === 4 ) {
     newObj.bonusPercentage = .06;
   }
-  else if (employee.reviewRating === 5) {
+  if (employee.reviewRating === 5) {
     newObj.bonusPercentage = .1;
   }
 
